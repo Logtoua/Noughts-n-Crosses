@@ -39,7 +39,7 @@ int main()
 
         const int computerMove = chooseComputerMove(board);
         makeMove(board, computerMove, ComputerMarker);
-        std::cout << "Computer chose square " << computerMove << ".\n";
+        std::cout << "Computer has choseen square " << computerMove << ".\n";
     }
 
     printBoard(board);
@@ -52,6 +52,10 @@ int main()
     } else {
         std::cout << "It's a draw!\n";
     }
+
+    std::cout << "WOuld you like to play again? (yes or no).";
+    string choice = "";
+    std::cin >> choice;
 
     return 0;
 }
@@ -176,7 +180,7 @@ int readHumanMove(const Board& board)
     int position = 0;
 
     while (true) {
-        std::cout << "Choose a square (1-9): ";
+        std::cout << "\nChoose a square (1-9): ";
         if (std::cin >> position && isMoveValid(board, position)) {
             return position;
         }
